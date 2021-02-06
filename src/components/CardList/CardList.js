@@ -26,18 +26,19 @@ const CardList = ({ match }) => {
         variables: { cardsSoldStatus }
     })
 
-    if (error) return <Error />
+    if (error) return <Error error={error} component={'CardList'} />
 
-    if (loading) return <Loading />
-
-    const {cards} = data;
     return (
-        <div>
-            <Header title={title} sold={!cardsSoldStatus} unsold={cardsSoldStatus}/>
-            {cards.map(card => {
-                return <Card key={card._id} card={card} />
-            })}
-        </div>
+        <React.Fragment>
+            <Header title={title} sold={!cardsSoldStatus} unsold={cardsSoldStatus} />
+            <div className='cardList'>
+                {loading ? <Loading /> :
+                    data.cards ? data.cards.map(card => {
+                        return <Card key={card._id} card={card} />
+                    }) : <Error error={`Could not find cards => ${data.cards}`} component={'CardList'}/>
+                }
+            </div>
+        </React.Fragment>
     )
 }
 

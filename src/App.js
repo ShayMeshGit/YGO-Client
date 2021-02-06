@@ -1,5 +1,6 @@
 import React from 'react';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
+import './App.css';
 
 //components
 import Routes from './components/Routes';
@@ -16,11 +17,14 @@ const App = () => {
   });
 
   return (
-    <div className='App'>
-      <ApolloProvider client={client}>
-        <Routes />
-      </ApolloProvider>
-    </div>
+    <React.Fragment>
+      <div className="shape"></div>
+      <div className='app'>
+        <ApolloProvider client={client}>
+          <Routes />
+        </ApolloProvider>
+      </div>
+    </React.Fragment>
   )
 }
 

@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { SadFaceIcon } from '../../assets/icons';
 
-function Error({error}) {
-    console.log(error);
+const Error = ({ error, component }) => {
+    console.log(`Got error from ${component} with: ${error}`);
     return (
-        <div>
-            Error!
+        <div className='errorComponent'>
+            Something Went Wrong <SadFaceIcon style={{color: "red"}}/>!
         </div>
     )
 }
+
 
 export default Error

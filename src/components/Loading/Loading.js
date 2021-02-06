@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
-function Loading(props) {
+
+const Loading = () => {
+    const antIcon = <LoadingOutlined spin />;
     return (
-        <div>
-            Loading...
+        <div className='loadingComponent'>
+            <Spin indicator={antIcon} tip='Loading...' />
         </div>
     )
 }
