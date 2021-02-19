@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 
 const Header = (props) => {
     return (
-        <div className="header">
-            {props.sold && <Link to={'/cards/sold'} className='sold'>sold</Link>}
-            <h1>{props.title}</h1>
-            {props.unsold && <Link to={'/'} className='unsold'>unsold</Link>}
+        <div className="header-container">
+            <div className="header">
+                {props.sold && <Link to={'/cards/sold'} className='sold'>sold</Link>}
+                <h1>{props.title}</h1>
+                {props.unsold && <Link to={'/'} className='unsold'>unsold</Link>}
+            </div>
         </div>
     )
 }
