@@ -46,8 +46,8 @@ const CardDetails = ({ match }) => {
                             <p>Price-Range: {`${data.card.lowestPrice} - ${data.card.highestPrice}${data.card.currency}`}</p>
                             <p>Rarity: {data.card.rarity}</p>
                         </div>
-                        <div className="status">
-                            {data.card.sold ? <p style={{ color: "green" }}>sold</p> : <p style={{ color: "red" }}>unsold</p>}
+                        <div className={`status ${data.card.sold ? "status-green" : "status-red"}`}>
+                            {data.card.sold ? <p>SOLD</p> : <p>UNSOLD</p>}
                         </div>
                     </div>
             }
