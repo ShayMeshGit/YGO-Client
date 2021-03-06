@@ -1,5 +1,5 @@
 import React from 'react';
-import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
+import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from '@apollo/client';
 import './App.css';
 
 //components
@@ -8,8 +8,13 @@ import Routes from './components/Routes';
 const App = () => {
 
   const cache = new InMemoryCache();
-  const link = createHttpLink({
-    uri: 'http://localhost:4000/graphql'
+  const link = new HttpLink({
+    uri: 'http://localhost:4000/graphql',
+    headers: {
+      "Cross-Origin-Resource-Policy": 'cross-origin',
+      "Cross-Origin-Embedder-Policy": 'require-corp',
+      "Cross-Origin-Opener-Policy": 'same-origin'
+    }
   })
   const client = new ApolloClient({
     cache,

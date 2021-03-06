@@ -27,7 +27,7 @@ mutation ChangeStatus($cardId: ID!){
 
 const CardList = ({ match }) => {
     const { path } = match;
-    const cardsSoldStatus = currentPath !== '/' ? true : false;
+    const cardsSoldStatus = path !== '/' ? true : false;
     const title = cardsSoldStatus ? 'SOLD CARDS' : 'UNSOLD CARDS';
 
 
@@ -35,12 +35,6 @@ const CardList = ({ match }) => {
         variables: {cardsSoldStatus}
     });
     const [changeStatusMutation] = useMutation(CHANGE_STATUS_MUTATION);
-
-    useEffect(() => {    
-        if(path !== currentPath) {
-            refetch()
-        }
-    })
 
     if (error) return <Error error={error} component={'CardList'} />
 
