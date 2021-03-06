@@ -1,7 +1,3 @@
-.app {
-  
-}
-
 .shape {
   position: absolute;
   width: 100%;
@@ -77,6 +73,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -89,13 +86,26 @@
   color: #fff;
 }
 
+.card button {
+}
+
+.ok {
+  background-color: red;
+}
+
+.unok {
+  background-color: green;
+}
+
 .cardDetails-container {
+  display: flex;
   position: absolute;
   width: 100%;
-  margin-top: 25vh;
-  display: flex;
+  height: 70%;
+  margin-top: 15vh;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 .cardDetails {
@@ -114,7 +124,7 @@
 
 .cardDetails p {
   margin-left: 10%;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .status {
