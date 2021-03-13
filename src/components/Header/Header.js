@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 
 
 const Header = (props) => {
-    const { title, sold, unsold } = props;
     return (
         <div className="header-container">
             <div className="header">
-                {sold && <Link to={'/cards/sold'} className='sold'>sold</Link>}
-                <h1>{title}</h1>
-                {unsold && <Link to={'/'} className='unsold'>unsold</Link>}
+                <Link to={'/cards/sold'} className='sold'>sold</Link>
+                <h1>YGO-CARDS</h1>
+                <Link to={'/'} className='unsold'>unsold</Link>
             </div>
         </div>
     )

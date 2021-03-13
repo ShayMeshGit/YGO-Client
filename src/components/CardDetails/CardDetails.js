@@ -5,7 +5,6 @@ import { gql, useQuery } from '@apollo/client';
 //Components
 import Loading from '../Loading';
 import Error from '../Error';
-import Header from '../Header';
 
 
 const CardDetails = ({ match }) => {
@@ -34,7 +33,6 @@ const CardDetails = ({ match }) => {
 
     return (
         <React.Fragment>
-            <Header title={'CARD DETAILS'} sold={true} unsold={true} />
             {
                 loading ? <Loading /> :
                     !data.card ? <Redirect to={'/'} /> :
