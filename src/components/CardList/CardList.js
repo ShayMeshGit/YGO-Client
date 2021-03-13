@@ -29,13 +29,16 @@ const CardList = ({ match }) => {
     const bool = path !== '/cards/sold' ? true : false;
 
     const { loading, error, data, refetch } = useQuery(CARDS_QUERY);
-    const [changeStatusMutation] = useMutation(CHANGE_STATUS_MUTATION);
+    const [changeStatusMutation] = useMutation(CHANGE_STATUS_MUTATION, {
+        refetchQueries: [
+            {query: CARDS_QUERY}
+        ]
+    });
 
     if (error) return <Error error={error} component={'CardList'} />
 
     const changeStatus = (id) => {
         changeStatusMutation({ variables: { cardId: id } });
-        refetch();
     }
 
     let cards = loading ? [] : bool
