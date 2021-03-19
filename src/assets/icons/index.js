@@ -3,7 +3,6 @@ import SadFaceSvg from './sad-face';
 
 const SadFaceIcon  = props => <Icon component={SadFaceSvg} {...props} />
 
-
 export {
-    SadFaceIcon
+    SadFaceIcon,
 };
