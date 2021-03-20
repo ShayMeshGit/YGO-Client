@@ -5,11 +5,12 @@ import './App.css';
 //components
 import Routes from './components/Routes';
 
-const App = () => {
+const { REACT_APP_URI } = process.env;
 
+const App = () => {
   const cache = new InMemoryCache();
   const link = new HttpLink({
-    uri: 'http://localhost:4000/graphql',
+    uri: REACT_APP_URI,
     headers: {
       "Cross-Origin-Resource-Policy": 'cross-origin',
       "Cross-Origin-Embedder-Policy": 'require-corp',
